@@ -4,7 +4,9 @@
   "description": "Implementação de um projeto completo.",
   "main": "index.js",
   "scripts": {
-    "theme-dev": "next dev"
+    "theme-dev": "next dev",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
   "author": "",
   "license": "MIT",
@@ -12,5 +14,8 @@
     "next": "^15.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
   }
 }
