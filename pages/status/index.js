@@ -24,6 +24,7 @@ function UpdatedAt() {
   let updatedAtTextVersionDatabase = "Carregando...";
   let updatedAtTextMaxConnectionsDatabase = "Carregando...";
   let updatedAtTextOpenedConnectionsDatabase = "Carregando...";
+  let updatedAtJSON = "Carregando...";
 
   if (!isLoading && data) {
     updatedAtText = new Date(data.updated_at).toLocaleString("pt-BR");
@@ -32,6 +33,7 @@ function UpdatedAt() {
       data.dependencies.database.opened_connections;
     updatedAtTextMaxConnectionsDatabase =
       data.dependencies.database.max_connections;
+    updatedAtJSON = JSON.stringify(data, null, 2);
   }
 
   return (
@@ -44,7 +46,7 @@ function UpdatedAt() {
         <li>Máxima Conexões: {updatedAtTextMaxConnectionsDatabase}</li>
       </ul>
       <hr></hr>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre>{updatedAtJSON}</pre>
     </div>
   );
 }
