@@ -4,7 +4,7 @@ export class InternalServerError extends Error {
       cause,
     });
     this.name = "InternalServerError";
-    this.actions = "Entre em contato com o suporte."
+    this.actions = "Entre em contato com o suporte.";
     this.statusCode = statusCode || 500;
   }
 
@@ -43,7 +43,7 @@ export class ServiceError extends Error {
       cause,
     });
     this.name = "ServiceError";
-    this.actions = "Entre em contato com o suporte."
+    this.actions = "Entre em contato com o suporte.";
     this.statusCode = 503;
   }
 
