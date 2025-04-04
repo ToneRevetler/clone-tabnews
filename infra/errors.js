@@ -56,3 +56,22 @@ export class ServiceError extends Error {
     };
   }
 }
+export class ValidationError extends Error {
+  constructor({ cause, message , actions}) {
+    super(message || "Serviço indisponível no momento", {
+      cause,
+    });
+    this.name = "ValidationError";
+    this.actions = actions || "Entre em contato com o suporte.";
+    this.statusCode = 400;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      actions: this.actions,
+      status_code: this.statusCode,
+    };
+  }
+}

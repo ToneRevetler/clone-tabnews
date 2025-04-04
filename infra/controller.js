@@ -1,4 +1,4 @@
-import { InternalServerError, MethodNotAllowed } from "infra/errors";
+import { InternalServerError, MethodNotAllowed, ValidationError } from "infra/errors";
 
 function onNoMatchHandler(request, response) {
   const publicErrorObjetct = new MethodNotAllowed();
@@ -6,13 +6,18 @@ function onNoMatchHandler(request, response) {
 }
 
 function onErrorHandler(error, request, response) {
+
+  if(error instanceof ValidationError){
+    return response.status(error.statusCode).json(error);
+  }
+
   const publicErrorObjetct = new InternalServerError({
     cause: error,
     statusCode: error.statusCode,
   });
   console.log("\n Erro da implementação do next-connect");
-  response.status(publicErrorObjetct.statusCode).json(publicErrorObjetct);
   console.error(error);
+  response.status(publicErrorObjetct.statusCode).json(publicErrorObjetct);
 }
 
 const controller = {
