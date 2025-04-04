@@ -8,7 +8,7 @@ exports.up = (pgm) => {
       default: pgm.func("gen_random_uuid()")
     },
 
-    // For reference, GitHub liits username to 39 characters.
+    // For reference, GitHub limits username to 39 characters.
     username:{
       type: "varchar(30)",
       notNull: true,
@@ -30,11 +30,14 @@ exports.up = (pgm) => {
     create_at: {
       type: "timestamptz",
       default: pgm.func("now()"),
+      notNull: true,
     },
 
     update_at: {
       type: "timestamptz",
       default: pgm.func("now()"),
+      notNull: true,
+
     },
   });
   

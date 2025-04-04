@@ -75,3 +75,22 @@ export class ValidationError extends Error {
     };
   }
 }
+export class NotFoundError extends Error {
+  constructor({ cause, message , actions}) {
+    super(message || "Não foi possível encontrar esse recurso no sistema", {
+      cause,
+    });
+    this.name = "NotFoundError";
+    this.actions = actions || "Verifique os parâmetros enviados.";
+    this.statusCode = 404;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      actions: this.actions,
+      status_code: this.statusCode,
+    };
+  }
+}
