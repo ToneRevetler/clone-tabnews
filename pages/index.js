@@ -1,5 +1,5 @@
 function Home() {
-  return <h1>Me manda um pix! com um valora bem alto, REMOVER TELA GODADY</h1>;
+  return <h1>Me manda um pix! com um valora bem alto, REMOVER TELA GODADY, muito massinha!</h1>;
 }
 
 export default Home;
